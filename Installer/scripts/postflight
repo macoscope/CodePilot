@@ -1,0 +1,15 @@
+#!/bin/sh
+
+PLUGINS_DIR="$HOME/Library/Application Support/Developer/Shared/Xcode/Plug-ins"
+
+if [ ! -d "$PLUGINS_DIR" ]
+then
+  mkdir -p "$PLUGINS_DIR"
+fi
+
+rm -rf "$PLUGINS_DIR/CodePilot3.xcplugin"
+mv /tmp/CodePilot3.xcplugin "$PLUGINS_DIR"
+
+pkgutil --forget net.macoscope.CodePilot3.pkg
+
+exit 0

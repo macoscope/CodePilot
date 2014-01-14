@@ -1,0 +1,10 @@
+//
+// Prefix header for all source files of the 'CodePilot' target in the 'CodePilot' project.
+//
+
+#ifdef __OBJC__
+#  import <Cocoa/Cocoa.h>
+#  import <WebKit/WebKit.h>
+#  import "CPCodePilotConfig.h"
+#  import "CPXcodeInterfaces.h"
+#endif

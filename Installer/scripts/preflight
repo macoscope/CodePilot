@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pkgutil --forget net.macoscope.CodePilot3.pkg
+
+exit 0
