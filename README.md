@@ -4,7 +4,7 @@ What is Code Pilot?
 Code Pilot is a plugin for Xcode 5 that allows you to quickly find files, methods and symbols within your project without the need for your mouse. 
 It uses fuzzy query matching to compute a list of results sorted by their relevancy. With just a few keystrokes you can jump to the method you're looking for.
 
-![CodePilot Window](https://github.com/macoscope/CodePilot/raw/master/Screenshots/CodePilot_01.png.png "CodePilot Window")
+![CodePilot Window](https://github.com/macoscope/CodePilot/raw/master/Screenshots/CodePilot_01.png "CodePilot Window")
 
 More about original Code Pilot release [here](http://codepilot.cc/).
 
