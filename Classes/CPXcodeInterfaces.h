@@ -217,7 +217,7 @@
 @end
 
 @interface IDEIndexSymbolOccurrence : NSObject
-- (id)file;
+- (DVTFilePath *)file;
 - (id)location;
 - (long long)lineNumber;
 @end

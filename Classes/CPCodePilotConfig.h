@@ -144,6 +144,7 @@
 #define PREFS_VIEW_MIN_HEIGHT                             230
 
 #define DEFAULTS_AUTOCOPY_SELECTION_KEY										@"MCCodePilotAutocopySelection"
+#define DEFAULTS_EXTERNAL_EDITOR_KEY                      @"MCCodePilotUseExternalEditor"
 #define DEFAULTS_API_SEARCH_KEY										        @"MCCodePilotAPISearch"
 #define DEFAULTS_LAST_VERSION_RUN_KEY                     @"MCCodePilotLastVersionRun"
 #define DEFAULTS_USER_LEVEL_DEBUG_KEY											@"MCCodePilotUserLevelDebug"
@@ -153,6 +154,7 @@
 
 #define DEFAULT_INCLUDE_SUBPROJECTS_VALUE																NO
 #define DEFAULT_AUTOCOPY_SELECTION_VALUE																NO
+#define DEFAULT_EXTERNAL_EDITOR_SELECTION_VALUE											   	NO
 #define DEFAULT_API_SEARCH_VALUE                                        YES
 
 // longest string we accept in autocopying from current editor's selection

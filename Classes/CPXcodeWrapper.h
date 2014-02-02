@@ -22,8 +22,11 @@
 - (NSScreen *)currentScreen;
 - (BOOL)currentProjectIsIndexing;
 - (void)openFileOrSymbol:(id)fileOrSymbol;
+- (void)openFileOrSymbol:(id)fileOrSymbol inExternalEditor:(BOOL)aUseExternal;
 - (void)openCPSymbol:(CPSymbol *)symbol;
+- (void)openCPSymbol:(CPSymbol *)symbol inExternalEditor:(BOOL)aUseExternal;
 - (void)openCPFileReference:(CPFileReference *)cpFileReference;
+- (void)openCPFileReference:(CPFileReference *)cpFileReference inExternalEditor:(BOOL)aUseExternal;
 - (NSString *)currentProjectName;
 - (NSString *)normalizedQueryForQuery:(NSString *)query;
 - (NSArray *)contentsForQuery:(NSString *)query fromResult:(CPResult *)result;

@@ -83,6 +83,8 @@
 		4BEE52751339193600DA9881 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B71F65C11561A15005A8471 /* libssl.dylib */; };
 		4BEE52761339193600DA9881 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B71F66011561A5E005A8471 /* libcrypto.dylib */; };
 		4BEE52771339193600DA9881 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B25285A1165E23700374EB0 /* WebKit.framework */; };
+		C79122D6189E3449001776A1 /* NSURL+Xcode.m in Sources */ = {isa = PBXBuildFile; fileRef = C79122D5189E3449001776A1 /* NSURL+Xcode.m */; };
+		C79122D9189E391D001776A1 /* NSWorkspace+OpenFileOnLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C79122D8189E391D001776A1 /* NSWorkspace+OpenFileOnLine.m */; };
 		F93F4FAD17B3FE550077B19E /* NSColor+ColorArithmetic.m in Sources */ = {isa = PBXBuildFile; fileRef = F93F4FAC17B3FE550077B19E /* NSColor+ColorArithmetic.m */; };
 		F9979794155D52060023D04C /* CPSymbolCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F9979793155D52060023D04C /* CPSymbolCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F9EAED25179D945100701117 /* CPXcodeInterfaces.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EAED24179D945100701117 /* CPXcodeInterfaces.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -223,6 +225,10 @@
 		4BEB7734138E466D00D52605 /* CPResultScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CPResultScrollView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4BEE527B1339193600DA9881 /* CodePilot3.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodePilot3.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BEE52A513391CBF00DA9881 /* CPCodePilotConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CPCodePilotConfig.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C79122D4189E3449001776A1 /* NSURL+Xcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Xcode.h"; sourceTree = "<group>"; };
+		C79122D5189E3449001776A1 /* NSURL+Xcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Xcode.m"; sourceTree = "<group>"; };
+		C79122D7189E391D001776A1 /* NSWorkspace+OpenFileOnLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+OpenFileOnLine.h"; sourceTree = "<group>"; };
+		C79122D8189E391D001776A1 /* NSWorkspace+OpenFileOnLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+OpenFileOnLine.m"; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		F90494C017D650DA00B7C1CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F93F4FAB17B3FE550077B19E /* NSColor+ColorArithmetic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+ColorArithmetic.h"; sourceTree = "<group>"; };
@@ -385,6 +391,10 @@
 				4BC0BBF213AEBBB80093D04D /* NSURL+Anchors.m */,
 				F93F4FAB17B3FE550077B19E /* NSColor+ColorArithmetic.h */,
 				F93F4FAC17B3FE550077B19E /* NSColor+ColorArithmetic.m */,
+				C79122D4189E3449001776A1 /* NSURL+Xcode.h */,
+				C79122D5189E3449001776A1 /* NSURL+Xcode.m */,
+				C79122D7189E391D001776A1 /* NSWorkspace+OpenFileOnLine.h */,
+				C79122D8189E391D001776A1 /* NSWorkspace+OpenFileOnLine.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -638,6 +648,7 @@
 				F9F596B417BBF78E0037BE7A /* CPResult.m in Sources */,
 				4BEE52471339193600DA9881 /* CPResultTableViewColumn.m in Sources */,
 				4BEE52481339193600DA9881 /* CPResultTableView.m in Sources */,
+				C79122D6189E3449001776A1 /* NSURL+Xcode.m in Sources */,
 				4BEE52491339193600DA9881 /* NSString+MiscExtensions.m in Sources */,
 				4BEE524A1339193600DA9881 /* NSAppleEventDescriptor+ToObject.m in Sources */,
 				4BEE524B1339193600DA9881 /* MCLog.m in Sources */,
@@ -667,6 +678,7 @@
 				4BEE52691339193600DA9881 /* CPFirstRunWindowView.m in Sources */,
 				4BEE526A1339193600DA9881 /* NSMutableArray+MiscExtensions.m in Sources */,
 				4BEE526C1339193600DA9881 /* MCStringScoring.c in Sources */,
+				C79122D9189E391D001776A1 /* NSWorkspace+OpenFileOnLine.m in Sources */,
 				4BEE526E1339193600DA9881 /* CPSymbol.m in Sources */,
 				4B30A186133979A7008A4372 /* CPPluginInstaller.m in Sources */,
 				4B4DCEF21363543B0009304C /* CPPreferencesToolbarDelegate.m in Sources */,

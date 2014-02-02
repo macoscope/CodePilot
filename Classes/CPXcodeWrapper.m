@@ -15,6 +15,8 @@
 #import "NSMutableArray+MiscExtensions.h"
 #import "CPWorkspaceSymbolCache.h"
 #import "CPResult.h"
+#import "NSURL+Xcode.h"
+#import "NSWorkspace+OpenFileOnLine.h"
 
 static NSString * const WorkspaceDocumentsKeyPath = @"workspaceDocuments";
 static NSString * const IDEIndexWillIndexWorkspaceNotification = @"IDEIndexWillIndexWorkspaceNotification";
@@ -387,29 +389,46 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
 
 - (void)openFileOrSymbol:(id)fileOrSymbol
 {
+  [self openFileOrSymbol:fileOrSymbol inExternalEditor:NO];
+}
+
+- (void)openFileOrSymbol:(id)fileOrSymbol inExternalEditor:(BOOL)aUseExternal
+{
   if (nil != fileOrSymbol && [fileOrSymbol isOpenable]) {
     if ([fileOrSymbol isKindOfClass:[CPSymbol class]]) {
-      [self openCPSymbol:fileOrSymbol];
-      
+      [self openCPSymbol:fileOrSymbol inExternalEditor:aUseExternal];
     } else if ([fileOrSymbol isKindOfClass:[CPFileReference class]]) {
-      [self openCPFileReference:fileOrSymbol];
+      [self openCPFileReference:fileOrSymbol inExternalEditor:aUseExternal];
     }
   }
 }
 
 - (void)openCPFileReference:(CPFileReference *)cpFileReference
 {
-  DVTDocumentLocation *documentLocation = [[DVTDocumentLocation alloc] initWithDocumentURL:[cpFileReference fileURL]
-                                                                                 timestamp:nil];
-  
-  IDEEditorOpenSpecifier *openSpecifier = [IDEEditorOpenSpecifier structureEditorOpenSpecifierForDocumentLocation:documentLocation
-                                                                                                      inWorkspace:[self currentWorkspace]
-                                                                                                            error:nil];
-  
-  [[self currentEditorContext] openEditorOpenSpecifier:openSpecifier];
+  [self openCPFileReference:cpFileReference inExternalEditor:NO];
+}
+
+- (void)openCPFileReference:(CPFileReference *)cpFileReference inExternalEditor:(BOOL)aUseExternal
+{
+  if(aUseExternal && ![cpFileReference.fileURL cp_opensInXcode])
+    [[NSWorkspace sharedWorkspace] openURL:cpFileReference.fileURL];
+  else {
+    DVTDocumentLocation *documentLocation = [[DVTDocumentLocation alloc] initWithDocumentURL:[cpFileReference fileURL]
+                                                                                   timestamp:nil];
+    
+    IDEEditorOpenSpecifier *openSpecifier = [IDEEditorOpenSpecifier structureEditorOpenSpecifierForDocumentLocation:documentLocation
+                                                                                                        inWorkspace:[self currentWorkspace]
+                                                                                                              error:nil];
+    
+    [[self currentEditorContext] openEditorOpenSpecifier:openSpecifier];
+  }
 }
 
 - (void)openCPSymbol:(CPSymbol *)symbol
+{
+  [self openCPSymbol:symbol inExternalEditor:NO];
+}
+- (void)openCPSymbol:(CPSymbol *)symbol inExternalEditor:(BOOL)aUseExternal
 {
   if (!symbol.hasOccurrences) {
     LOG(@"WARNING: Tried to open a symbol without occurrences: %@", symbol);
@@ -417,11 +436,16 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
   }
   
   @try {
-    IDEEditorOpenSpecifier *openSpecifier = [IDEEditorOpenSpecifier structureEditorOpenSpecifierForDocumentLocation:[symbol relatedDocumentLocation]
-                                                                                                        inWorkspace:[self currentWorkspace]
-                                                                                                              error:nil];
-    
-    [[self currentEditorContext] openEditorOpenSpecifier:openSpecifier];
+    IDEIndexSymbolOccurrence *occurrence = [symbol relatedSymbolOccurrence];
+    NSURL *url = occurrence.file.fileURL;
+    if (aUseExternal && ![url cp_opensInXcode])
+      [[NSWorkspace sharedWorkspace] cp_openURL:url onLine:occurrence.lineNumber];
+    else {
+      IDEEditorOpenSpecifier *openSpecifier = [IDEEditorOpenSpecifier structureEditorOpenSpecifierForDocumentLocation:[symbol relatedDocumentLocation]
+                                                                                                          inWorkspace:[self currentWorkspace]
+                                                                                                                error:nil];
+      [[self currentEditorContext] openEditorOpenSpecifier:openSpecifier];
+    }
   }
   @catch (NSException * e) {
     LOG(@"EXCEPTION OCCURRED: %@", e);
