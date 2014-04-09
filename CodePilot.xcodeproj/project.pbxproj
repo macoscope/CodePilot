@@ -619,7 +619,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bash $PROJECT_DIR/Installer/build_installer_pkg.command\n";
+			shellScript = "bash \"$PROJECT_DIR/Installer/build_installer_pkg.command\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
