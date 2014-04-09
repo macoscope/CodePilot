@@ -34,7 +34,7 @@ static NSString * const SelectedItemIdentifierKeyPath = @"selectedItemIdentifier
   toolbarDelegate = [[CPPreferencesToolbarDelegate alloc] initWithOriginalToolbarDelegate:originalToolbarDelegate toolbar:toolbar];
   
   [toolbar setDelegate:toolbarDelegate];
-  [toolbar insertItemWithItemIdentifier:PREFERENCES_TOOLBAR_ITEM_IDENTIFIER atIndex:3];
+  [toolbar insertItemWithItemIdentifier:PREFERENCES_TOOLBAR_ITEM_IDENTIFIER atIndex:toolbar.items.count];
   
   return toolbarDelegate;
 }
