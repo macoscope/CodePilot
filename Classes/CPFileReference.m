@@ -7,7 +7,6 @@
 //
 
 #import "CPFileReference.h"
-#import "RegexKitLite.h"
 #import "CPCodePilotConfig.h"
 #import "CPXcodeInterfaces.h"
 #import "objc/objc-class.h"

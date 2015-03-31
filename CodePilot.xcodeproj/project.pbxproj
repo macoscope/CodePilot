@@ -55,7 +55,6 @@
 		4BEE524A1339193600DA9881 /* NSAppleEventDescriptor+ToObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FC006112FFFF800846DF6 /* NSAppleEventDescriptor+ToObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4BEE524B1339193600DA9881 /* MCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FC008112FFFF800846DF6 /* MCLog.m */; };
 		4BEE524E1339193600DA9881 /* CPFileReferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FC00F112FFFF800846DF6 /* CPFileReferenceCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4BEE524F1339193600DA9881 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FC014112FFFF800846DF6 /* RegexKitLite.m */; };
 		4BEE52501339193600DA9881 /* CPStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B88D25511303885007250E5 /* CPStatusLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4BEE52511339193600DA9881 /* NSArray+MiscExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDCDAF5113142B40015BF7D /* NSArray+MiscExtensions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4BEE52521339193600DA9881 /* NSView+AllSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA45D2C11343FA9006351CC /* NSView+AllSubviews.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -191,8 +190,6 @@
 		4B7FC009112FFFF800846DF6 /* MCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MCLog.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4B7FC00F112FFFF800846DF6 /* CPFileReferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CPFileReferenceCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4B7FC010112FFFF800846DF6 /* CPFileReferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFileReferenceCell.h; sourceTree = "<group>"; };
-		4B7FC014112FFFF800846DF6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RegexKitLite.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4B7FC015112FFFF800846DF6 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		4B88D25411303885007250E5 /* CPStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPStatusLabel.h; sourceTree = "<group>"; };
 		4B88D25511303885007250E5 /* CPStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPStatusLabel.m; sourceTree = "<group>"; };
 		4B918211113C25AD00BF23B5 /* AMIndeterminateProgressIndicatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMIndeterminateProgressIndicatorCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -482,15 +479,6 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
-		4B7FC0511130015A00846DF6 /* RegexKit Lite */ = {
-			isa = PBXGroup;
-			children = (
-				4B7FC015112FFFF800846DF6 /* RegexKitLite.h */,
-				4B7FC014112FFFF800846DF6 /* RegexKitLite.m */,
-			);
-			name = "RegexKit Lite";
-			sourceTree = "<group>";
-		};
 		4B918210113C258100BF23B5 /* AMIndeterminateProgressIndicatorCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,7 +514,6 @@
 			children = (
 				4B918210113C258100BF23B5 /* AMIndeterminateProgressIndicatorCell */,
 				4B24B6401139138E0000EF99 /* QSB */,
-				4B7FC0511130015A00846DF6 /* RegexKit Lite */,
 			);
 			name = "3rd party";
 			path = ../Classes;
@@ -560,7 +547,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Macoscope;
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "CodePilot" */;
@@ -642,7 +629,6 @@
 				4BEE524A1339193600DA9881 /* NSAppleEventDescriptor+ToObject.m in Sources */,
 				4BEE524B1339193600DA9881 /* MCLog.m in Sources */,
 				4BEE524E1339193600DA9881 /* CPFileReferenceCell.m in Sources */,
-				4BEE524F1339193600DA9881 /* RegexKitLite.m in Sources */,
 				4BEE52501339193600DA9881 /* CPStatusLabel.m in Sources */,
 				4BEE52511339193600DA9881 /* NSArray+MiscExtensions.m in Sources */,
 				4BEE52521339193600DA9881 /* NSView+AllSubviews.m in Sources */,
@@ -703,6 +689,7 @@
 		1DEB913F08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -717,6 +704,7 @@
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -730,6 +718,7 @@
 		4BE2963F12E60EBB0026BDAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_GC = unsupported;
@@ -741,6 +730,7 @@
 		4BE2964012E60EBB0026BDAC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_GC = unsupported;
@@ -752,7 +742,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_LOCATION = YES;
@@ -760,7 +750,7 @@
 				DSTROOT = "$(HOME)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_GC = unsupproted;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -784,14 +774,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = "$(HOME)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_ENABLE_OBJC_GC = unsupproted;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/CodePilot_Prefix.pch";

@@ -4,7 +4,6 @@
 #import <Cocoa/Cocoa.h>
 #import "MCCommons.h"
 #import "MCLog.h"
-#import "RegexKitLite.h"
 #import <Quartz/Quartz.h>
 #import <QuartzCore/QuartzCore.h>
 #import "CPCodePilotPlugin.h"

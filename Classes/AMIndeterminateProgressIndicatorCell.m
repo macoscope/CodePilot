@@ -37,23 +37,17 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[NSColor release];
-	[super dealloc];
-}
 
 - (NSColor *)color
 {
-	return [[color retain] autorelease];
+	return color;
 }
 
 - (void)setColor:(NSColor *)value
 {
 	CGFloat alphaComponent;
 	if (color != value) {
-		[color release];
-		color = [value retain];
+		color = value;
 		[[color colorUsingColorSpaceName:@"NSCalibratedRGBColorSpace"] getRed:&redComponent green:&greenComponent blue:&blueComponent alpha:&alphaComponent];
 //		NSAssert((alphaComponent > 0.999), @"color must be opaque"); // gives a warning in xcode4
 	}
