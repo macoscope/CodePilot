@@ -12,58 +12,53 @@
 @implementation MCLog
 + (void)prefix:(NSString *)prefixString format:(NSString *)format, ...
 {
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  va_list ap;
-  NSString *message;
-  va_start(ap,format);
-  
-  message = [[NSString alloc] initWithFormat:format arguments:ap];
-  va_end(ap);
-  
-  NSLog(@"%@ %@", prefixString, message);
-  
-  [message release];
-  [pool release];
+  @autoreleasepool {
+    va_list ap;
+    NSString *message;
+    va_start(ap,format);
+    
+    message = [[NSString alloc] initWithFormat:format arguments:ap];
+    va_end(ap);
+    
+    NSLog(@"%@ %@", prefixString, message);
+    
+  }
 }
 
 + (void)file:(char *)sourceFile function:(char *)functionName lineNumber:(int)lineNumber format:(NSString *)format, ...
 {
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  va_list ap;
-  NSString *print, *file, *function;
-  va_start(ap,format);
-  
-  file = [[NSString alloc] initWithBytes:sourceFile length:strlen(sourceFile) encoding:NSUTF8StringEncoding];
-  
-  
-  function = [NSString stringWithCString:functionName encoding:NSASCIIStringEncoding];
-  print = [[NSString alloc] initWithFormat:format arguments:ap];
-  va_end(ap);
-  
+  @autoreleasepool {
+    va_list ap;
+    NSString *print, *file, *function;
+    va_start(ap,format);
+    
+    file = [[NSString alloc] initWithBytes:sourceFile length:strlen(sourceFile) encoding:NSUTF8StringEncoding];
+    
+    
+    function = [NSString stringWithCString:functionName encoding:NSASCIIStringEncoding];
+    print = [[NSString alloc] initWithFormat:format arguments:ap];
+    va_end(ap);
+    
 	NSString *fileLocation = [file lastPathComponent];
-  
-  NSLog(@"%@:%d %@; %@", fileLocation, lineNumber, function, print);
-  
-  [print release];
-  [file release];
-  [pool release];
+    
+    NSLog(@"%@:%d %@; %@", fileLocation, lineNumber, function, print);
+    
+  }
 }
 + (NSString *)messageWithFile:(char *)sourceFile function:(char *)functionName lineNumber:(int)lineNumber format:(NSString *)format, ...
 {
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  va_list ap;
-  NSString *print, *file, *function;
-  va_start(ap,format);
-  file = [[NSString alloc] initWithBytes:sourceFile length:strlen(sourceFile) encoding:NSUTF8StringEncoding];
-  
-  function = [NSString stringWithCString:functionName encoding:NSASCIIStringEncoding];
-  print = [[NSString alloc] initWithFormat:format arguments:ap];
-  va_end(ap);
-  NSString * buffer = [NSString stringWithFormat:@"%@:%d %@; %@", [file lastPathComponent], lineNumber, function, print];
-  [print release];
-  [file release];
-  [pool release];
-  return buffer;
+  @autoreleasepool {
+    va_list ap;
+    NSString *print, *file, *function;
+    va_start(ap,format);
+    file = [[NSString alloc] initWithBytes:sourceFile length:strlen(sourceFile) encoding:NSUTF8StringEncoding];
+    
+    function = [NSString stringWithCString:functionName encoding:NSASCIIStringEncoding];
+    print = [[NSString alloc] initWithFormat:format arguments:ap];
+    va_end(ap);
+    NSString * buffer = [NSString stringWithFormat:@"%@:%d %@; %@", [file lastPathComponent], lineNumber, function, print];
+    return buffer;
+  }
 }
 
 NSString * MCToStringFromTypeAndValue(const char * typeCode, void * value)
@@ -87,11 +82,9 @@ NSString * MCToStringFromTypeAndValue(const char * typeCode, void * value)
     return NSStringFromRange(*(NSRange *)value);
     
   } else if (strcmp(typeCode, @encode(id)) == 0) {
-    return MCNSStringWithFormat(@"%@", *(id *)value);
-    
+    return MCNSStringWithFormat(@"%@", (__bridge id)(value));
   } else if (strcmp(typeCode, @encode(BOOL)) == 0) {
     return (*(BOOL *)value) ? @"YES" : @"NO";
-    
   } else if (strcmp(typeCode, @encode(int)) == 0) {
     return MCNSStringWithFormat(@"%d", *(int *)value);
     

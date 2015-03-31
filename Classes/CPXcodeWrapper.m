@@ -247,11 +247,9 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
 {
   query = [self normalizedQueryForQuery:query];
   
-	NSArray *resultArray = [NSArray array];
-	NSArray *files = [NSArray array];
 	NSArray *symbols = [NSArray array];
   
-  files = [self cpFileReferencesMatchingQuery:query];
+  NSArray *files = [self cpFileReferencesMatchingQuery:query];
   
   if ([files count] < MAX_OBJECT_COUNT_FOR_SORT_AND_FILTER) {
     symbols = [self topLevelCPSymbolsMatchingQuery:query];
@@ -259,7 +257,7 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
     USER_LOG(@"not adding symbols - we already have %d entries.", MAX_OBJECT_COUNT_FOR_SORT_AND_FILTER);
   }
   
-  resultArray = [symbols arrayByAddingObjectsFromArray:files];
+  NSArray* resultArray = [symbols arrayByAddingObjectsFromArray:files];
   
   // TODO/FIXME: We could add API search here
   resultArray = [self arrayByFilteringAndSortingArray:resultArray
@@ -622,11 +620,10 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
 - (NSArray *)allIDEIndexSymbolsFromCPFileReference:(CPFileReference *)fileReference
 {
   NSMutableArray *objects = [NSMutableArray array];
-  NSArray *topLevelSymbols = [NSArray array];
   
   PBXFileReference *pbxFileReference = [self pbxFileReferenceForCPFileReference:fileReference];
   
-  topLevelSymbols = [[self currentIndex] topLevelSymbolsInFile:[pbxFileReference absolutePath]];
+  NSArray * topLevelSymbols = [[self currentIndex] topLevelSymbolsInFile:[pbxFileReference absolutePath]];
   
   for (IDEIndexSymbol *ideSymbol in topLevelSymbols) {
     [objects addObject:ideSymbol];

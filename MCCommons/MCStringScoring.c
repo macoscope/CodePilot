@@ -187,8 +187,8 @@ float MCStringScoring_scoreStringForQuery(const char *scoredString, const char *
   
   queryCharMatchIndexes = malloc(sizeof(int *)*queryLength);
   for (index = 0; index < queryLength; index++) {
-    queryCharMatchIndexes[index] = malloc(sizeof(int *)*(valueLength+1));
-    memset(queryCharMatchIndexes[index], -1, sizeof(int *)*(valueLength+1));
+    queryCharMatchIndexes[index] = (int *)malloc(sizeof(int)*(valueLength+1));
+    memset(queryCharMatchIndexes[index], -1, sizeof(int)*(valueLength+1));
   }
   
   for (valueIndex = 0; valueIndex < valueLength; valueIndex++) {
@@ -453,8 +453,8 @@ float MCStringScoring_scoreStringForQueryNEW(const char *scoredString, const cha
   
   queryCharMatchIndexes = malloc(sizeof(int *)*queryLength);
   for (index = 0; index < queryLength; index++) {
-    queryCharMatchIndexes[index] = malloc(sizeof(int *)*(valueLength+1));
-    memset(queryCharMatchIndexes[index], -1, sizeof(int *)*(valueLength+1));
+    queryCharMatchIndexes[index] = (int *)malloc(sizeof(int)*(valueLength+1));
+    memset(queryCharMatchIndexes[index], -1, sizeof(int)*(valueLength+1));
   }
   
   for (valueIndex = 0; valueIndex < valueLength; valueIndex++) {
