@@ -55,7 +55,6 @@
 		4BEE524A1339193600DA9881 /* NSAppleEventDescriptor+ToObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FC006112FFFF800846DF6 /* NSAppleEventDescriptor+ToObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4BEE524B1339193600DA9881 /* MCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FC008112FFFF800846DF6 /* MCLog.m */; };
 		4BEE524E1339193600DA9881 /* CPFileReferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FC00F112FFFF800846DF6 /* CPFileReferenceCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4BEE524F1339193600DA9881 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FC014112FFFF800846DF6 /* RegexKitLite.m */; };
 		4BEE52501339193600DA9881 /* CPStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B88D25511303885007250E5 /* CPStatusLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4BEE52511339193600DA9881 /* NSArray+MiscExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDCDAF5113142B40015BF7D /* NSArray+MiscExtensions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4BEE52521339193600DA9881 /* NSView+AllSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA45D2C11343FA9006351CC /* NSView+AllSubviews.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -191,8 +190,6 @@
 		4B7FC009112FFFF800846DF6 /* MCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MCLog.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4B7FC00F112FFFF800846DF6 /* CPFileReferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CPFileReferenceCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4B7FC010112FFFF800846DF6 /* CPFileReferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFileReferenceCell.h; sourceTree = "<group>"; };
-		4B7FC014112FFFF800846DF6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RegexKitLite.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4B7FC015112FFFF800846DF6 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		4B88D25411303885007250E5 /* CPStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPStatusLabel.h; sourceTree = "<group>"; };
 		4B88D25511303885007250E5 /* CPStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPStatusLabel.m; sourceTree = "<group>"; };
 		4B918211113C25AD00BF23B5 /* AMIndeterminateProgressIndicatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMIndeterminateProgressIndicatorCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -482,15 +479,6 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
-		4B7FC0511130015A00846DF6 /* RegexKit Lite */ = {
-			isa = PBXGroup;
-			children = (
-				4B7FC015112FFFF800846DF6 /* RegexKitLite.h */,
-				4B7FC014112FFFF800846DF6 /* RegexKitLite.m */,
-			);
-			name = "RegexKit Lite";
-			sourceTree = "<group>";
-		};
 		4B918210113C258100BF23B5 /* AMIndeterminateProgressIndicatorCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,7 +514,6 @@
 			children = (
 				4B918210113C258100BF23B5 /* AMIndeterminateProgressIndicatorCell */,
 				4B24B6401139138E0000EF99 /* QSB */,
-				4B7FC0511130015A00846DF6 /* RegexKit Lite */,
 			);
 			name = "3rd party";
 			path = ../Classes;

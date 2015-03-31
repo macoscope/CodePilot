@@ -148,7 +148,11 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
 
 - (NSString *)normalizedQueryForQuery:(NSString *)query
 {
-  return [query stringByReplacingOccurrencesOfRegex:@"[\\*\\ \\r\\n\\t]" withString:@""];
+  NSMutableString *mQuery = [query mutableCopy];
+  NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"[\\*\\ \\r\\n\\t]"  options:NSRegularExpressionCaseInsensitive error:nil];
+
+  [regex replaceMatchesInString:mQuery options:NSMatchingAnchored range:NSRangeFromString(mQuery) withTemplate:@""];
+  return mQuery;
 }
 
 - (CPWorkspaceSymbolCache *)workspaceSymbolCacheForWorkspace:(IDEWorkspace *)workspace

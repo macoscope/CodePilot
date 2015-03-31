@@ -6,7 +6,6 @@
 //  Copyright 2010 Macoscope. All rights reserved.
 //
 
-#import "RegexKitLite.h"
 #import "CPFileReference.h"
 #import "CPSymbol.h"
 #import <objc/objc-class.h>
