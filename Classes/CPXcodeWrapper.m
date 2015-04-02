@@ -148,6 +148,9 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
 
 - (NSString *)normalizedQueryForQuery:(NSString *)query
 {
+  if (!query) {
+    return nil;
+  }
   NSMutableString *mQuery = [query mutableCopy];
   NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"[\\*\\ \\r\\n\\t]"  options:NSRegularExpressionCaseInsensitive error:nil];
 
