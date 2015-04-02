@@ -630,7 +630,7 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
     [objects addObjectsFromArray:[self recursiveChildrenOfIDEIndexSymbol:ideSymbol]];
   }
   
-  [objects arrayWithoutElementsHavingNilOrEmptyValueForKey:@"name"];
+  objects = [[objects arrayWithoutElementsHavingNilOrEmptyValueForKey:@"name"] mutableCopy];
   
   NSArray *objectsWithRealOccurrences = [NSArray array];
   
