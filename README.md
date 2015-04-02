@@ -19,12 +19,8 @@ You can install Code Pilot using [Alcatraz](http://alcatraz.io) package manager
 
 ##Manual
 
-To use Code Pilot you have to build the project and copy the resulting `CodePilot3.xcplugin` file to you plugin directory - `~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins`. 
-
-Alternatively you can build the installer package and use it to install the plugin (it essentially just moves the xcplugin to the Plug-ins directory). 
+To use Code Pilot you have to build the project. It will automatically place `CodePilot3.xcplugin` file to your plugin directory - `~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins`.  
 To load the plugin you have to restart Xcode.
-
-NOTE: In order to build a package you may need to install PackageMaker.app included in "Auxiliary tools for Xcode" [PackageMaker](https://developer.apple.com/downloads/index.action?name=PackageMaker)
 
 When the plugin is loaded you can open the CodePilot window with CMD + SHIFT + X, and then type your query.
 
