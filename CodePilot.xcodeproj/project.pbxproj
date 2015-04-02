@@ -6,21 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		4BE2963E12E60EBB0026BDAC /* Build Package */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 4BE2964412E60EC60026BDAC /* Build configuration list for PBXAggregateTarget "Build Package" */;
-			buildPhases = (
-				4BE2964812E60F120026BDAC /* ShellScript */,
-			);
-			dependencies = (
-				4B2DF80B133927C200C0D8A9 /* PBXTargetDependency */,
-			);
-			name = "Build Package";
-			productName = "Build Package";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		4B197DC113AF37A100DF2598 /* memlak.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B197DC013AF37A100DF2598 /* memlak.png */; };
 		4B30A186133979A7008A4372 /* CPPluginInstaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B30A185133979A7008A4372 /* CPPluginInstaller.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -87,16 +72,6 @@
 		F9EAED25179D945100701117 /* CPXcodeInterfaces.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EAED24179D945100701117 /* CPXcodeInterfaces.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F9F596B417BBF78E0037BE7A /* CPResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F596B317BBF78E0037BE7A /* CPResult.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		4B2DF80A133927C200C0D8A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4BEE52391339193600DA9881;
-			remoteInfo = "CodePilot for Xcode 4";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		4B7A0F8B1356EF8C004CCC96 /* CopyFiles */ = {
@@ -565,7 +540,6 @@
 			projectRoot = "";
 			targets = (
 				4BEE52391339193600DA9881 /* CodePilot */,
-				4BE2963E12E60EBB0026BDAC /* Build Package */,
 			);
 		};
 /* End PBXProject section */
@@ -593,22 +567,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4BE2964812E60F120026BDAC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "bash \"$PROJECT_DIR/Installer/build_installer_pkg.command\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4BEE523E1339193600DA9881 /* Sources */ = {
@@ -666,14 +624,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		4B2DF80B133927C200C0D8A9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4BEE52391339193600DA9881 /* CodePilot */;
-			targetProxy = 4B2DF80A133927C200C0D8A9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -712,29 +662,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		4BE2963F12E60EBB0026BDAC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_GC = unsupported;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = "Build Package";
-			};
-			name = Debug;
-		};
-		4BE2964012E60EBB0026BDAC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_GC = unsupported;
-				PRODUCT_NAME = "Build Package";
 			};
 			name = Release;
 		};
@@ -808,15 +735,6 @@
 			buildConfigurations = (
 				1DEB913F08733D840010E9CD /* Debug */,
 				1DEB914008733D840010E9CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4BE2964412E60EC60026BDAC /* Build configuration list for PBXAggregateTarget "Build Package" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4BE2963F12E60EBB0026BDAC /* Debug */,
-				4BE2964012E60EBB0026BDAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
