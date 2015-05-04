@@ -29,6 +29,9 @@
 {
   BOOL autocopySelectionValue = [self.view.autocopyingSelectionCheckbox state];
   [[NSUserDefaults standardUserDefaults] setBool:autocopySelectionValue forKey:DEFAULTS_AUTOCOPY_SELECTION_KEY];
+  
+  BOOL externalEditorValue = [self.view.externalEditorCheckbox state];
+  [[NSUserDefaults standardUserDefaults] setBool:externalEditorValue forKey:DEFAULTS_EXTERNAL_EDITOR_KEY];
 }
 
 @end

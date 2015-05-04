@@ -470,7 +470,14 @@
 	if (@selector(insertNewline:) == command || @selector(PBX_insertNewlineAndIndent:) == command) {
 		if (self.selectedElement) {
 			[(CPCodePilotWindowDelegate *)[[self.searchField window] delegate] hideWindow];
-			[self.xcodeWrapper openFileOrSymbol:self.selectedElement];
+      
+      BOOL external = [[[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_EXTERNAL_EDITOR_KEY] boolValue];
+      if ([NSEvent modifierFlags] & NSCommandKeyMask) {
+        external = !external;
+      }
+      [self.xcodeWrapper openFileOrSymbol:self.selectedElement
+                         inExternalEditor:external];
+
 		}
     
 		return YES;

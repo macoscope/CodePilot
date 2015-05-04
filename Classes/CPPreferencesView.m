@@ -46,6 +46,7 @@ static const CGFloat TextHeight = 16;
   autocopyingSelectionCheckbox.font = [self boldFont];
   [autocopyingSelectionCheckbox setButtonType:NSSwitchButton];
   
+  
   if (nil == [[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_AUTOCOPY_SELECTION_KEY]) {
     [autocopyingSelectionCheckbox setState:DEFAULT_AUTOCOPY_SELECTION_VALUE];
   } else {
@@ -57,6 +58,24 @@ static const CGFloat TextHeight = 16;
   self.autocopyingSelectionCheckbox = autocopyingSelectionCheckbox;
   
   [self addSubview:autocopyingSelectionCheckbox];
+  
+  NSButton *externalEditorCheckbox = [[NSButton alloc] initWithFrame:NSMakeRect(Margin, Margin*1.5 + autocopyingSelectionCheckbox.bounds.size.height, LeftSideWidth, TextHeight)];
+  
+  externalEditorCheckbox.title = @"Use external editor";
+  externalEditorCheckbox.font = [self boldFont];
+  [externalEditorCheckbox setButtonType:NSSwitchButton];
+  
+  if (nil == [[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_EXTERNAL_EDITOR_KEY]) {
+    [externalEditorCheckbox setState:DEFAULT_EXTERNAL_EDITOR_SELECTION_VALUE];
+  } else {
+    [externalEditorCheckbox setState:[[NSUserDefaults standardUserDefaults] boolForKey:DEFAULTS_EXTERNAL_EDITOR_KEY]];
+  }
+  
+  [externalEditorCheckbox sizeToFit];
+  
+  self.externalEditorCheckbox = externalEditorCheckbox;
+  
+  [self addSubview:externalEditorCheckbox];
 }
 
 - (void)setupCopyrightLabel

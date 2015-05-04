@@ -11,6 +11,7 @@
 
 @interface CPPreferencesView : NSView
 @property (nonatomic, strong) NSButton *autocopyingSelectionCheckbox;
+@property (nonatomic, strong) NSButton *externalEditorCheckbox;
 
 - (id)initWithPreferredFrame;
 
