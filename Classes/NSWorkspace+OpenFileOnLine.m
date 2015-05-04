@@ -21,16 +21,21 @@ NSString *kBBEditIdentifier       = @"com.barebones.bbedit";
 + (NSString *)cp_schemeForEditor:(NSString *)editor
 {
   if ([editor isEqualToString:kSublimeText2Identifier] ||
-      [editor isEqualToString:kSublimeText3Identifier])
+      [editor isEqualToString:kSublimeText3Identifier]) {
     return @"subl";
-  if ([editor isEqualToString:kMacVimIdentifier])
+  }
+  if ([editor isEqualToString:kMacVimIdentifier]) {
     return @"mvim";
-  if ([editor isEqualToString:kTextmateIdentifier])
+  }
+  if ([editor isEqualToString:kTextmateIdentifier]) {
     return @"txmt";
-  if ([editor isEqualToString:kBBEditIdentifier])
+  }
+  if ([editor isEqualToString:kBBEditIdentifier]) {
     return @"txmt";
-  else
+  }
+  else {
     return nil;
+  }
 }
 
 - (void)cp_openURL:(NSURL *)url onLine:(NSUInteger)line
@@ -38,12 +43,13 @@ NSString *kBBEditIdentifier       = @"com.barebones.bbedit";
   NSURL *editorURL = [self URLForApplicationToOpenURL:url];
   NSString *editorIdentifier = [[NSBundle bundleWithURL:editorURL] bundleIdentifier];
   NSString *scheme = [[self class] cp_schemeForEditor:editorIdentifier];
-
-  if (scheme)
+  
+  if (scheme) {
     url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://open?url=%@&line=%lu",
                                 scheme,
                                 [[url absoluteString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                 (unsigned long)line]];
+  }
   [self openURL:url];
 }
 

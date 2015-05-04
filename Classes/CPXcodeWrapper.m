@@ -410,8 +410,9 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
 
 - (void)openCPFileReference:(CPFileReference *)cpFileReference inExternalEditor:(BOOL)aUseExternal
 {
-  if(aUseExternal && ![cpFileReference.fileURL cp_opensInXcode])
+  if (aUseExternal && ![cpFileReference.fileURL cp_opensInXcode]) {
     [[NSWorkspace sharedWorkspace] openURL:cpFileReference.fileURL];
+  }
   else {
     DVTDocumentLocation *documentLocation = [[DVTDocumentLocation alloc] initWithDocumentURL:[cpFileReference fileURL]
                                                                                    timestamp:nil];
@@ -438,8 +439,9 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
   @try {
     IDEIndexSymbolOccurrence *occurrence = [symbol relatedSymbolOccurrence];
     NSURL *url = occurrence.file.fileURL;
-    if (aUseExternal && ![url cp_opensInXcode])
+    if (aUseExternal && ![url cp_opensInXcode]) {
       [[NSWorkspace sharedWorkspace] cp_openURL:url onLine:occurrence.lineNumber];
+    }
     else {
       IDEEditorOpenSpecifier *openSpecifier = [IDEEditorOpenSpecifier structureEditorOpenSpecifierForDocumentLocation:[symbol relatedDocumentLocation]
                                                                                                           inWorkspace:[self currentWorkspace]

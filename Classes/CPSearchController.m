@@ -472,8 +472,9 @@
 			[(CPCodePilotWindowDelegate *)[[self.searchField window] delegate] hideWindow];
       
       BOOL external = [[[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_EXTERNAL_EDITOR_KEY] boolValue];
-      if([NSEvent modifierFlags] & NSCommandKeyMask)
+      if ([NSEvent modifierFlags] & NSCommandKeyMask) {
         external = !external;
+      }
       [self.xcodeWrapper openFileOrSymbol:self.selectedElement
                          inExternalEditor:external];
 
