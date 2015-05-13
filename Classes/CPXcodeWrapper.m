@@ -156,7 +156,7 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
   NSMutableString *mQuery = [query mutableCopy];
   NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"[\\*\\ \\r\\n\\t]"  options:NSRegularExpressionCaseInsensitive error:nil];
 
-  [regex replaceMatchesInString:mQuery options:NSMatchingAnchored range:NSRangeFromString(mQuery) withTemplate:@""];
+  [regex replaceMatchesInString:mQuery options:NSMatchingAnchored range:NSMakeRange(0, mQuery.length) withTemplate:@""];
   return mQuery;
 }
 
