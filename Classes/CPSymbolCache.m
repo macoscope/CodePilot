@@ -40,7 +40,14 @@
 
 - (void)onFileChangeNotification:(NSNotification *)notification
 {
-  if (![[notification object] isKindOfClass:[IDESourceCodeDocument class]]) {
+  /*
+   Be careful with [IDESourceCodeDocument class], use NSClassFromString(@"IDESourceCodeDocument") instead.
+   The reason is IDESourceCodeDocument is a private class residing in some dylib loaded after launching Xcode. However,
+   since Xcode 6.3.2 plugins are loaded before loading the dylib with IDESourceCodeDocument, and so linker freaks out.
+   NSClassFromString(@"IDESourceCodeDocument"), though not perfect, is safer because will return nil until appropriate
+   dylib is loaded.
+   */
+  if (![[notification object] isKindOfClass:NSClassFromString(@"IDESourceCodeDocument")]) {
     return;
   }
   
