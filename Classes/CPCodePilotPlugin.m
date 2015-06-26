@@ -20,10 +20,14 @@
 
 + (void)load
 {
-  LOG(@"CODE PILOT: CURRENT_XCODE_VERSION: %@ CURRENT_XCODE_REVISION: %@", CURRENT_XCODE_VERSION, CURRENT_XCODE_REVISION);
-  
-  // just instantiate the singleton
-  (void)[CPCodePilotPlugin sharedInstance];
+  // Avoid instantiating plugin if no Xcode is launched.
+  // Loading the plugin from xcodebuild command caused a crash because the plugin tries to load a window for itself
+  NSString *currentApplicationName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+  if ([currentApplicationName isEqual:@"Xcode"]) {
+    LOG(@"CODE PILOT: CURRENT_XCODE_VERSION: %@ CURRENT_XCODE_REVISION: %@", CURRENT_XCODE_VERSION, CURRENT_XCODE_REVISION);
+    // just instantiate the singleton
+    (void)[CPCodePilotPlugin sharedInstance];
+  }
 }
 
 - (id)init
