@@ -189,10 +189,11 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
 
 - (void)updateWorkspaceSymbolCacheForWorkspace:(IDEWorkspace *)workspace
 {
+  CFTimeInterval startTime = CACurrentMediaTime();
   @try {
     @synchronized (self.workspaceSymbolCaches) {
       self.symbolCachingInProgress = YES;
-      NSMutableArray *newSymbolCacheContents = [NSMutableArray array];
+      NSMutableSet *newSymbolCacheContents = [NSMutableSet set];
       
       NSArray *interestingSymbolKinds = [NSArray arrayWithObjects:
                                          [DVTSourceCodeSymbolKind containerSymbolKind],
@@ -220,7 +221,7 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
         }
       }
       
-      CPWorkspaceSymbolCache *newWorkspaceSymbolCache = [CPWorkspaceSymbolCache symbolCacheWithSymbols:newSymbolCacheContents
+      CPWorkspaceSymbolCache *newWorkspaceSymbolCache = [CPWorkspaceSymbolCache symbolCacheWithSymbols:newSymbolCacheContents.allObjects
                                                                                           forWorkspace:workspace];
       
       [self updateWorkspaceSymbolCacheForWorkspace:workspace withWorkspaceSymbolCache:newWorkspaceSymbolCache];
@@ -231,6 +232,8 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
   @catch (NSException *exception) {
     LOG(@"EXCEPTION OCCURRED: %@", exception);
   }
+  CFTimeInterval endTime = CACurrentMediaTime();
+  LOG(@"UPDATING SYMBOL CACHE TOOK %fs", endTime - startTime);
 }
 
 - (NSArray *)topLevelCPSymbolsMatchingQuery:(NSString *)query
