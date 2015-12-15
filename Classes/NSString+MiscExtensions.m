@@ -7,7 +7,6 @@
 //
 
 #import "NSString+MiscExtensions.h"
-#import <openssl/sha.h>
 
 @implementation NSString (MiscExtensions)
 - (BOOL)isBlank
@@ -40,7 +39,7 @@
 {
 	NSString *format;
   
-	if (abs(count) != 1) {
+	if (ABS(count) != 1) {
 		// s, z, x, sh, and ch
 		if ([noun hasSuffix:@"s"] ||
 				[noun hasSuffix:@"z"] ||
