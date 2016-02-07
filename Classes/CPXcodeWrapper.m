@@ -192,7 +192,7 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
   @try {
     @synchronized (self.workspaceSymbolCaches) {
       self.symbolCachingInProgress = YES;
-      NSMutableArray *newSymbolCacheContents = [NSMutableArray array];
+      NSMutableSet *newSymbolCacheContents = [NSMutableSet set];
       
       NSArray *interestingSymbolKinds = [NSArray arrayWithObjects:
                                          [DVTSourceCodeSymbolKind containerSymbolKind],
@@ -220,7 +220,7 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
         }
       }
       
-      CPWorkspaceSymbolCache *newWorkspaceSymbolCache = [CPWorkspaceSymbolCache symbolCacheWithSymbols:newSymbolCacheContents
+      CPWorkspaceSymbolCache *newWorkspaceSymbolCache = [CPWorkspaceSymbolCache symbolCacheWithSymbols:newSymbolCacheContents.allObjects
                                                                                           forWorkspace:workspace];
       
       [self updateWorkspaceSymbolCacheForWorkspace:workspace withWorkspaceSymbolCache:newWorkspaceSymbolCache];
