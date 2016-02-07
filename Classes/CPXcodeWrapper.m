@@ -189,7 +189,6 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
 
 - (void)updateWorkspaceSymbolCacheForWorkspace:(IDEWorkspace *)workspace
 {
-  CFTimeInterval startTime = CACurrentMediaTime();
   @try {
     @synchronized (self.workspaceSymbolCaches) {
       self.symbolCachingInProgress = YES;
@@ -232,8 +231,6 @@ static NSString * const IDEIndexDidIndexWorkspaceNotification = @"IDEIndexDidInd
   @catch (NSException *exception) {
     LOG(@"EXCEPTION OCCURRED: %@", exception);
   }
-  CFTimeInterval endTime = CACurrentMediaTime();
-  LOG(@"UPDATING SYMBOL CACHE TOOK %fs", endTime - startTime);
 }
 
 - (NSArray *)topLevelCPSymbolsMatchingQuery:(NSString *)query
