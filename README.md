@@ -13,14 +13,40 @@ More about original Code Pilot release [here](http://codepilot.cc/).
 How to use Code Pilot?
 ======================
 
-To use Code Pilot you have to build the project and copy the resulting `CodePilot3.xcplugin` file to you plugin directory - `~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins`. 
+To use Code Pilot you have to build the CodePilot target and copy the resulting `CodePilot3.xcplugin` file to you plugin directory - `~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins`. 
 
-Alternatively you can build the installer package and use it to install the plugin (it essentially just moves the xcplugin to the Plug-ins directory). 
-To load the plugin you have to restart Xcode 5.
+After that you need to install [update_xcode_plugins](https://github.com/inket/update_xcode_plugins)(which unsign Xcode and allow plugins to be installed again), and simply run: 
 
-NOTE: In order to build a package you may need to install PackageMaker.app included in "Auxiliary tools for Xcode" [PackageMaker](https://developer.apple.com/downloads/index.action?name=PackageMaker)
+```shell
+$ update_xcode_plugins
+```
 
-When the plugin is loaded you can open the CodePilot window with CMD + SHIFT + X, and then type your query.
+The you are all set!
+
+Xcode 10 changes:
+=================
+First removed 
+* libssl.dylib 
+* libcrypto.dylib
+from Linked Frameworks and Libraries
+
+Then removed 
+````
+- (void)setupIndexingProgressIndicatorTimer
+{
+	if (nil == self.indexingProgressIndicatorTimer) {
+		self.indexingProgressIndicatorTimer = [NSTimer scheduledTimerWithTimeInterval:[[self.indexingProgressIndicator cell] animationDelay]
+                                                                           target:self
+                                                                         selector:@selector(animateIndexingProgressIndicator:)
+                                                                         userInfo:NULL
+                                                                          repeats:YES];
+    
+		[[NSRunLoop currentRunLoop] addTimer:self.indexingProgressIndicatorTimer
+                                 forMode:NSEventTrackingRunLoopMode];
+	}
+}
+````
+from `CPSearchController.m`.
 
 License
 =======
