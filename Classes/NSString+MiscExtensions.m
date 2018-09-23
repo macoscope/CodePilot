@@ -7,7 +7,7 @@
 //
 
 #import "NSString+MiscExtensions.h"
-#import <openssl/sha.h>
+
 
 @implementation NSString (MiscExtensions)
 - (BOOL)isBlank

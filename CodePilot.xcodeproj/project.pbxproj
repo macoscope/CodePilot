@@ -80,8 +80,6 @@
 		4BEE526C1339193600DA9881 /* MCStringScoring.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B63C9261190199500C0DB12 /* MCStringScoring.c */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4BEE526E1339193600DA9881 /* CPSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBC547911D7757D00C63705 /* CPSymbol.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4BEE52741339193600DA9881 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
-		4BEE52751339193600DA9881 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B71F65C11561A15005A8471 /* libssl.dylib */; };
-		4BEE52761339193600DA9881 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B71F66011561A5E005A8471 /* libcrypto.dylib */; };
 		4BEE52771339193600DA9881 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B25285A1165E23700374EB0 /* WebKit.framework */; };
 		F93F4FAD17B3FE550077B19E /* NSColor+ColorArithmetic.m in Sources */ = {isa = PBXBuildFile; fileRef = F93F4FAC17B3FE550077B19E /* NSColor+ColorArithmetic.m */; };
 		F9979794155D52060023D04C /* CPSymbolCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F9979793155D52060023D04C /* CPSymbolCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -240,8 +238,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BEE52741339193600DA9881 /* Cocoa.framework in Frameworks */,
-				4BEE52751339193600DA9881 /* libssl.dylib in Frameworks */,
-				4BEE52761339193600DA9881 /* libcrypto.dylib in Frameworks */,
 				4BEE52771339193600DA9881 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,7 +556,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Macoscope;
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "CodePilot" */;

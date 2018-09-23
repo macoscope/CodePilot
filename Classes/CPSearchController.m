@@ -541,16 +541,16 @@
 #pragma mark - Indexing Progress Indicator
 - (void)setupIndexingProgressIndicatorTimer
 {
-	if (nil == self.indexingProgressIndicatorTimer) {
-		self.indexingProgressIndicatorTimer = [NSTimer scheduledTimerWithTimeInterval:[[self.indexingProgressIndicator cell] animationDelay]
-                                                                           target:self
-                                                                         selector:@selector(animateIndexingProgressIndicator:)
-                                                                         userInfo:NULL
-                                                                          repeats:YES];
-    
-		[[NSRunLoop currentRunLoop] addTimer:self.indexingProgressIndicatorTimer
-                                 forMode:NSEventTrackingRunLoopMode];
-	}
+//  if (nil == self.indexingProgressIndicatorTimer) {
+//    self.indexingProgressIndicatorTimer = [NSTimer scheduledTimerWithTimeInterval:[[self.indexingProgressIndicator cell] animationDelay]
+//                                                                           target:self
+//                                                                         selector:@selector(animateIndexingProgressIndicator:)
+//                                                                         userInfo:NULL
+//                                                                          repeats:YES];
+//    
+//    [[NSRunLoop currentRunLoop] addTimer:self.indexingProgressIndicatorTimer
+//                                 forMode:NSEventTrackingRunLoopMode];
+//  }
 }
 
 - (void)animateIndexingProgressIndicator:(NSTimer *)aTimer
