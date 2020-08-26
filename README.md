@@ -13,11 +13,11 @@ More about original Code Pilot release [here](http://codepilot.cc/).
 How to install Code Pilot?
 ==========================
 
-##Alcatraz
+## Alcatraz
 
 You can install Code Pilot using [Alcatraz](http://alcatraz.io) package manager
 
-##Manual
+## Manual
 
 To use Code Pilot you have to build the project. It will automatically place `CodePilot3.xcplugin` file to your plugin directory - `~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins`.  
 To load the plugin you have to restart Xcode.
